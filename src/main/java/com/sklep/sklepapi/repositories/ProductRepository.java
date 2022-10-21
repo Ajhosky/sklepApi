@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class ProductRepository {
     @Autowired
-    JdbcTemplate jdbcTemplate;
+     JdbcTemplate jdbcTemplate;
 
     public List<Product> getProducts() {
         return
