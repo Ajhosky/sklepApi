@@ -8,27 +8,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api/")
 public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("")
+    @GetMapping("users")
     public List<User> showUsers(){
 
         return userRepository.getUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("users/{id}")
     public User showUserById(@PathVariable("id")int id){
         return userRepository.getUserById(id);
     }
-    @PostMapping("/add")
+    @PostMapping("users/add")
     public int addUser(@RequestBody List<User> users){
         return userRepository.addUser(users);
     }
 
-    @PutMapping("/updateput/{id}")
+    @PutMapping("users/updateput/{id}")
     public String putUser(@PathVariable int id,@RequestBody User updatedUser) {
         User oldUser = userRepository.getUserById(id);
         if(oldUser != null) {
@@ -38,7 +38,7 @@ public class UserController {
         return "Nie istnieje";
     }
 
-    @PatchMapping("/updatepatch/{id}")
+    @PatchMapping("users/updatepatch/{id}")
     public String patchUser(@PathVariable int id, @RequestBody User updatedUser){
         User oldUser = userRepository.getUserById(id);
         if(oldUser != null) {
@@ -63,7 +63,7 @@ public class UserController {
         return "Nie istnieje";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("users/{id}")
     public int deleteUserById(@PathVariable int id){
         return userRepository.deleteUser(id);
     }
