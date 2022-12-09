@@ -18,8 +18,6 @@ public class ProductController {
     public List<Product> showProducts(){
         return productRepository.getProducts();
 
-
-
     }
     @GetMapping("products/{id}")
     public Product showProductById(@PathVariable("id") int id){

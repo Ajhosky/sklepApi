@@ -14,11 +14,11 @@ public class UserRepository {
     JdbcTemplate jdbcTemplate;
 
     public List<User> getUsers() {
-        return
-            jdbcTemplate.query(
-                    "SELECT * FROM user",
-                    BeanPropertyRowMapper.newInstance(User.class)
-            );
+        jdbcTemplate.query(
+                "SELECT * FROM user",
+                BeanPropertyRowMapper.newInstance(User.class)
+        );
+
 
     }
 
